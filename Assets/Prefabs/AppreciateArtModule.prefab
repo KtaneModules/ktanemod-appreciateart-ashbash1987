@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModuleType: AppreciateArt
-  ModuleDisplayName: Appreciate Art
+  ModuleDisplayName: Art Appreciation
   RequiresTimerVisibility: 0
 --- !u!114 &114582179813128934
 MonoBehaviour:
