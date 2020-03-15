@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class AppreciateArtModule : MonoBehaviour
@@ -58,9 +59,15 @@ public class AppreciateArtModule : MonoBehaviour
 
         _transform = transform;
         _mainCameraTransform = Camera.main.transform;
-        _appreciationRequiredDuration = Random.Range(MinimumAppreciationTime, MaximumAppreciationTime);
+        _appreciationRequiredDuration = UnityEngine.Random.Range(MinimumAppreciationTime, MaximumAppreciationTime);
 
-        _defaultGameMusicVolume = GameMusicControl.GameMusicVolume;
+        try
+        {
+            _defaultGameMusicVolume = GameMusicControl.GameMusicVolume;
+        }
+        catch (Exception)
+        {
+        }
     }
 
     private void Update()
@@ -110,7 +117,13 @@ public class AppreciateArtModule : MonoBehaviour
         _audio.PlaySoundAtTransform(AppreciationStartedClip.RandomPick().name, _transform);
         _ambientRef = _audio.PlaySoundAtTransformWithRef(AppreciationAmbientClip.name, _transform);
 
-        GameMusicControl.GameMusicVolume = 0.0f;
+        try
+        {
+            GameMusicControl.GameMusicVolume = 0.0f;
+        }
+        catch (Exception)
+        {
+        }
 
         StopAllCoroutines();
         StartCoroutine(FadeIn());
@@ -150,7 +163,13 @@ public class AppreciateArtModule : MonoBehaviour
             _ambientRef = null;
         }
 
-        GameMusicControl.GameMusicVolume = _defaultGameMusicVolume;
+        try
+        {
+            GameMusicControl.GameMusicVolume = _defaultGameMusicVolume;
+        }
+        catch (Exception)
+        {
+        }
     }
 
     private IEnumerator FadeIn(float speed = 1.0f)
