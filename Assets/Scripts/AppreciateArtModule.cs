@@ -11,6 +11,8 @@ public class AppreciateArtModule : MonoBehaviour
     public float MaximumAppreciationAngle;
     public float MaximumAppreciationSeparationAngle;
 
+    public float RandomChanceForOtherModule;
+
     public AudioClip[] AppreciationStartedClip;
     public AudioClip AppreciationAmbientClip;
     public AudioClip AppreciationInterruptedClip;
@@ -18,10 +20,17 @@ public class AppreciateArtModule : MonoBehaviour
 
     public Material PostProcessMaterial;
 
+    public Art Art;
+
     private bool IsAppreciatingArt
     {
         get
         {
+            if (_transform == null)
+            {
+                return false;
+            }
+
             Vector3 position = _transform.position;
             Vector3 cameraPosition = _mainCameraTransform.position;
             Vector3 facing = _transform.up;
@@ -40,6 +49,7 @@ public class AppreciateArtModule : MonoBehaviour
     private Transform _transform = null;
     private Transform _mainCameraTransform = null;
     private KMBombModule _module = null;
+    private KMBombInfo _info = null;
     private KMAudio _audio = null;
     private KMAudio.KMAudioRef _ambientRef = null;
     private CameraPostProcess _postProcess = null;
@@ -55,9 +65,11 @@ public class AppreciateArtModule : MonoBehaviour
         _module.GenerateLogFriendlyName();
         _module.Log("There is some art to appreciate.");
 
+        _info = GetComponent<KMBombInfo>();
+        _info.OnBombExploded += OnBombExploded;
+
         _audio = GetComponent<KMAudio>();
 
-        _transform = transform;
         _mainCameraTransform = Camera.main.transform;
         _appreciationRequiredDuration = UnityEngine.Random.Range(MinimumAppreciationTime, MaximumAppreciationTime);
 
@@ -70,8 +82,31 @@ public class AppreciateArtModule : MonoBehaviour
         }
     }
 
+    private IEnumerator Start()
+    {
+        yield return null;
+
+        _transform = transform;
+
+        if (UnityEngine.Random.Range(0.0f, 1.0f) <= RandomChanceForOtherModule)
+        {
+            Transform otherModule = OtherModuleGrabber.GetOtherModule(this);
+            if (otherModule != null)
+            {
+                _module.LogFormat("I'm appreciating some other art - it's called \"{0}\". You should go appreciate it.", otherModule.name);
+                _transform = otherModule;
+                Art.SetArt(null);
+            }
+        }
+    }
+
     private void Update()
     {
+        if (_transform == null)
+        {
+            return;
+        }
+
         if (!_solved)
         {
             UpdateForArtAppreciation();
@@ -79,6 +114,21 @@ public class AppreciateArtModule : MonoBehaviour
         else
         {
             UpdateForExcessiveArtAppreciation();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _info.OnBombExploded -= OnBombExploded;
+
+        OtherModuleGrabber.GiveBackOtherModule(_transform);
+    }
+
+    private void OnBombExploded()
+    {
+        if (_appreciationStartTime.HasValue)
+        {
+            StopAppreciatingArt();
         }
     }
 

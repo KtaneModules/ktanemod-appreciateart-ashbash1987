@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33025293217345082}
   - component: {fileID: 23624568171202570}
   - component: {fileID: 114582179813128934}
+  - component: {fileID: 114723682753985230}
   m_Layer: 0
   m_Name: gold trim
   m_TagString: Untagged
@@ -88,6 +89,7 @@ GameObject:
   - component: {fileID: 33416614589004480}
   - component: {fileID: 23569752648467564}
   - component: {fileID: 114725048280012574}
+  - component: {fileID: 114353142990330456}
   m_Layer: 0
   m_Name: plate
   m_TagString: Untagged
@@ -108,6 +110,7 @@ GameObject:
   - component: {fileID: 114700050265597614}
   - component: {fileID: 114008584262160426}
   - component: {fileID: 114322406519321356}
+  - component: {fileID: 114790057686411148}
   m_Layer: 0
   m_Name: AppreciateArtModule
   m_TagString: Untagged
@@ -141,6 +144,7 @@ GameObject:
   - component: {fileID: 33866070601944142}
   - component: {fileID: 23590700603086898}
   - component: {fileID: 114793978246669518}
+  - component: {fileID: 114070317554945014}
   m_Layer: 0
   m_Name: painting
   m_TagString: Untagged
@@ -195,6 +199,7 @@ GameObject:
   - component: {fileID: 33678115919070732}
   - component: {fileID: 23274525005569660}
   - component: {fileID: 114795329483131980}
+  - component: {fileID: 114382617877680348}
   m_Layer: 0
   m_Name: frame
   m_TagString: Untagged
@@ -638,6 +643,7 @@ MonoBehaviour:
   MaximumAppreciationDistance: 1
   MaximumAppreciationAngle: 20
   MaximumAppreciationSeparationAngle: 8
+  RandomChanceForOtherModule: 1
   AppreciationStartedClip:
   - {fileID: 8300000, guid: dca5a702be40b154784e05b697f5b954, type: 3}
   - {fileID: 8300000, guid: c1b16000e3253ff41ab2ebce6ca5ac7c, type: 3}
@@ -649,6 +655,26 @@ MonoBehaviour:
   AppreciationEnlightenedClip: {fileID: 8300000, guid: 5f1d5fc69d076e84184f904d68d8ced1,
     type: 3}
   PostProcessMaterial: {fileID: 2100000, guid: 734814816ee8cf14fb82299452f94582, type: 2}
+  Art: {fileID: 114070317554945014}
+--- !u!114 &114070317554945014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778142671825774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285480353da671d4e8dd3b35527542b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Paintings:
+  - {fileID: 2800000, guid: 0abe4e36b59c5dc44998ced1e6f5d4ea, type: 3}
+  - {fileID: 2800000, guid: 2b6837421e8881d44a6dc7f464008937, type: 3}
+  - {fileID: 2800000, guid: f1dfbc8418b11c14fba1d6a6b3b0654c, type: 3}
+  - {fileID: 2800000, guid: 078873c6eb1119f43b2ae812546a7e7a, type: 3}
+  - {fileID: 2800000, guid: ba953b38fb279fb4397b20a5573afdf3, type: 3}
+  - {fileID: 2800000, guid: 9b79b11a7945b1e409675a1135b80cf6, type: 3}
+  - {fileID: 2800000, guid: 91eafb779d08ec14693aec94905b33b3, type: 3}
 --- !u!114 &114117950571960174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -689,6 +715,38 @@ MonoBehaviour:
   ModuleType: AppreciateArt
   ModuleDisplayName: Art Appreciation
   RequiresTimerVisibility: 0
+--- !u!114 &114353142990330456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440709199820860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cfaa2872ebd5b4aac166ea076bfefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseColors:
+  - {r: 0.7205882, g: 0.58348644, b: 0.010596896, a: 1}
+  - {r: 0.71323526, g: 0.71323526, b: 0.71323526, a: 1}
+  ColorVariance: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &114382617877680348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995083164553568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cfaa2872ebd5b4aac166ea076bfefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseColors:
+  - {r: 0.2794118, g: 0.18788034, b: 0.10477942, a: 1}
+  - {r: 0.53676474, g: 0.41030383, b: 0.13813798, a: 1}
+  - {r: 0.43382353, g: 0.4054886, b: 0.34450692, a: 1}
+  - {r: 0.4705882, g: 0.14929007, b: 0.12802768, a: 1}
+  ColorVariance: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
 --- !u!114 &114582179813128934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -726,6 +784,21 @@ MonoBehaviour:
   m_Script: {fileID: -1675560866, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114723682753985230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063118240008828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cfaa2872ebd5b4aac166ea076bfefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseColors:
+  - {r: 0.7205882, g: 0.58348644, b: 0.010596896, a: 1}
+  - {r: 0.71323526, g: 0.71323526, b: 0.71323526, a: 1}
+  ColorVariance: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &114725048280012574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -739,6 +812,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114790057686411148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521112174398498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2144496390, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114793978246669518
 MonoBehaviour:
   m_ObjectHideFlags: 1
