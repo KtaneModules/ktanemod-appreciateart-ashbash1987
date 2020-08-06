@@ -643,7 +643,7 @@ MonoBehaviour:
   MaximumAppreciationDistance: 1
   MaximumAppreciationAngle: 20
   MaximumAppreciationSeparationAngle: 8
-  RandomChanceForOtherModule: 1
+  RandomChanceForOtherModule: 0.1
   AppreciationStartedClip:
   - {fileID: 8300000, guid: dca5a702be40b154784e05b697f5b954, type: 3}
   - {fileID: 8300000, guid: c1b16000e3253ff41ab2ebce6ca5ac7c, type: 3}
