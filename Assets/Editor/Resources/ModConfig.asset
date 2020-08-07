@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: AppreciateArt
   title: Art Appreciation
-  description: "[b][i]\"This is art. Please appreciate it.\"[/b][/i]\n\r\n[h1]About[/h1]\r\nThis
+  description: "[b][i]\"This is art. Please appreciate it.\"[/i][/b]\n\r\n[h1]About[/h1]\r\nThis
     was just a dumb idea I had and implemented it all in 2 hours. It does at least
     prove that you don't need to have a complicated puzzle in order to make a module
     that can cause compelling gameplay decisions.\n\r\n[h1]Manual Page[/h1]\r\nThe
@@ -21,6 +21,6 @@ MonoBehaviour:
     here[/url] to view it online.\r\n\r\n[h1]Mission Makers[/h1]\r\nFor those making
     custom missions or gameplay: \nModule Type Name: [b]AppreciateArt[/b]\nModule
     Display Name: [b]Art Appreciation[/b]"
-  version: v1.1.0
+  version: v1.1.1
   outputFolder: E:\Games\SteamLibrary\steamapps\common\Keep Talking and Nobody Explodes\mods
   previewImage: {fileID: 2800000, guid: fc38eff07fb2f51469ac309cca164e26, type: 3}
